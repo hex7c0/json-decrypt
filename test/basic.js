@@ -83,12 +83,12 @@ describe('error', function() {
     try {
       encrypt(a, 'private');
     } catch (e) {
-      assert.equal(e.message, 'Must give cipher-type, key');
+      assert.equal(/Must give cipher-type, key/.test(e.message), true);
     }
     try {
       decrypt(a, 'private');
     } catch (e) {
-      assert.equal(e.message, 'Must give cipher-type, key as argument');
+      assert.equal(/Must give cipher-type, key/.test(e.message), true);
     }
     done();
   });
