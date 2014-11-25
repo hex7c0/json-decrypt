@@ -40,4 +40,8 @@ var encrypt = require('json-decrypt').encrypt;
  - `cipher` - **String** Cipher *(default "aes-128-ctr")*
  - `encoding` - **String** Output encoding *(default "base64")*
 
+## Examples
+
+Take a look at my [examples](https://github.com/hex7c0/json-decrypt/tree/master/examples)
+
 ### [License GPLv3](http://opensource.org/licenses/GPL-3.0)
