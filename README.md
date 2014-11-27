@@ -4,7 +4,8 @@
 [![Build Status](https://travis-ci.org/hex7c0/json-decrypt.svg)](https://travis-ci.org/hex7c0/json-decrypt)
 [![Dependency Status](https://david-dm.org/hex7c0/json-decrypt/status.svg)](https://david-dm.org/hex7c0/json-decrypt)
 
-json-decrypt your object from being overridden
+decrypt your json configuration with password.
+You can save key on user environment for decrypt your cfg file
 
 ## Installation
 
