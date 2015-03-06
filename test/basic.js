@@ -2,9 +2,8 @@
 /**
  * @file basic test
  * @module json-decrypt
- * @package json-decrypt
  * @subpackage test
- * @version 0.0.1
+ * @version 0.0.0
  * @author hex7c0 <hex7c0@gmail.com>
  * @license GPLv3
  */
@@ -12,15 +11,9 @@
 /*
  * initialize module
  */
-// import
-try {
-  var decrypt = require('..').decrypt;
-  var encrypt = require('..').encrypt;
-  var assert = require('assert');
-} catch (MODULE_NOT_FOUND) {
-  console.error(MODULE_NOT_FOUND);
-  process.exit(1);
-}
+var decrypt = require('..').decrypt;
+var encrypt = require('..').encrypt;
+var assert = require('assert');
 
 /*
  * test module

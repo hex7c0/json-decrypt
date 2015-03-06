@@ -2,9 +2,8 @@
 /**
  * @file json-decrypt main
  * @module json-decrypt
- * @package json-decrypt
  * @subpackage main
- * @version 0.0.1
+ * @version 0.1.0
  * @author hex7c0 <hex7c0@gmail.com>
  * @copyright hex7c0 2014
  * @license GPLv3
@@ -52,7 +51,7 @@ function decrypt(obj, index, key, cipher, encoding) {
 
     var ciph = crypto.createDecipher(cipher || 'aes-128-ctr', key);
     var p = ciph.update(eval(vars), encoding || 'base64', 'utf8')
-        + ciph.final('utf8').toString('utf8');
+      + ciph.final('utf8').toString('utf8');
     eval(vars + '="' + p + '";');
   }
   return obj;
@@ -82,7 +81,7 @@ function encrypt(obj, index, key, cipher, encoding) {
 
     var ciph = crypto.createCipher(cipher || 'aes-128-ctr', key);
     var p = ciph.update(eval(vars), 'utf8', encoding || 'base64')
-        + ciph.final(encoding || 'base64').toString('utf8');
+      + ciph.final(encoding || 'base64').toString('utf8');
     eval(vars + '="' + p + '";');
   }
   return obj;
