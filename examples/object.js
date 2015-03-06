@@ -1,6 +1,6 @@
 'use strict';
 /**
- * @file json decrypt example with env key
+ * @file object instead of json file
  * @module json-decrypt
  * @package json-decrypt
  * @subpackage examples
@@ -14,11 +14,15 @@
  */
 var decrypt = require('..').decrypt; // require('json-decrypt')
 
-var cfg = require('./cfg.json'); // use the json inside this dir
+var cfg = { // use an object
+  fix: 'ciao',
+  foo: 'hRzVwi8=',
+  pr: [ 'foo' ]
+};
 
 if (process.env.p !== undefined) {
   cfg = decrypt(cfg, 'pr', process.env.p);
   console.log(cfg);
 } else {
-  console.log('run "p=hex node env.js"');
+  console.log('run "p=hex node object.js"');
 }
