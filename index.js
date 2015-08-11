@@ -42,10 +42,10 @@ function decrypt(obj, index, key, cipher, encoding) {
 
   check(obj, index);
   var pr = obj[index];
-  for (var i = 0, ii = pr.length; i < ii; i++) {
+  for (var i = 0, ii = pr.length; i < ii; ++i) {
     var pit = pr[i].split('.');
     var vars = 'obj';
-    for (var j = 0, jj = pit.length; j < jj; j++) {
+    for (var j = 0, jj = pit.length; j < jj; ++j) {
       vars += '[pit[' + j + ']]';
     }
 
@@ -72,10 +72,10 @@ module.exports.decrypt = decrypt;
 function encrypt(obj, index, key, cipher, encoding) {
 
   var pr = check(obj, index);
-  for (var i = 0, ii = pr.length; i < ii; i++) {
+  for (var i = 0, ii = pr.length; i < ii; ++i) {
     var pit = pr[i].split('.');
     var vars = 'obj';
-    for (var j = 0, jj = pit.length; j < jj; j++) {
+    for (var j = 0, jj = pit.length; j < jj; ++j) {
       vars += '[pit[' + j + ']]';
     }
 
