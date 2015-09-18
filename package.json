@@ -1,10 +1,11 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.2",
   "name": "json-decrypt",
-  "description": "decrypt your json configuration with password",
+  "description": "decrypt (or encrypt) your json configuration with a password",
   "keywords": [
     "json",
-    "cipher"
+    "cipher",
+    "configuration"
   ],
   "preferGlobal": false,
   "homepage": "http://supergiovane.tk/#/json-decrypt",

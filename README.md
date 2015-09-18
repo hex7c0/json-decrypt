@@ -6,8 +6,8 @@
 [![Dependency Status](https://img.shields.io/david/hex7c0/json-decrypt.svg)](https://david-dm.org/hex7c0/json-decrypt)
 [![Coveralls](https://img.shields.io/coveralls/hex7c0/json-decrypt.svg)](https://coveralls.io/r/hex7c0/json-decrypt)
 
-decrypt (or encrypt) your json configuration (or object) with password.
-You can save a key into user environment for decrypt this cfg file
+decrypt (or encrypt) your json configuration (or object) with a password.
+You can save your key into user environment for decrypt this cfg file
 
 ## Installation
 
@@ -23,7 +23,7 @@ git clone git://github.com/hex7c0/json-decrypt.git
 
 ## API
 
-decrypt your Object key
+decrypt your Object key, with an ENV passphrase
 ```js
 var decrypt = require('json-decrypt').decrypt;
 
@@ -49,7 +49,7 @@ var cfg = {
 var ciphertext_cfg = encrypt(cfg, 'pr', process.env.p);
 ```
 
-### decrypt(obj, index, key, [cipher], [encoding])
+### decrypt(obj, index, key [, cipher [, encoding]])
 
 #### options
 
