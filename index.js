@@ -17,8 +17,7 @@ function check(obj, index) {
 
   if (typeof obj !== 'object') {
     throw new TypeError('First argument is not an Object');
-  }
-  if (obj[index] === undefined) {
+  } else if (obj[index] === undefined) {
     throw new TypeError('Second argument is undefined');
   }
   return obj[index];
@@ -40,8 +39,7 @@ function check(obj, index) {
  */
 function decrypt(obj, index, key, cipher, encoding) {
 
-  check(obj, index);
-  var pr = obj[index];
+  var pr = check(obj, index);
   for (var i = 0, ii = pr.length; i < ii; ++i) {
     var pit = pr[i].split('.');
     var vars = 'obj';
@@ -52,6 +50,7 @@ function decrypt(obj, index, key, cipher, encoding) {
     var ciph = crypto.createDecipher(cipher || 'aes-128-ctr', key);
     var p = ciph.update(eval(vars), encoding || 'base64', 'utf8')
       + ciph.final('utf8').toString('utf8');
+
     eval(vars + '="' + p + '";');
   }
   return obj;
@@ -82,6 +81,7 @@ function encrypt(obj, index, key, cipher, encoding) {
     var ciph = crypto.createCipher(cipher || 'aes-128-ctr', key);
     var p = ciph.update(eval(vars), 'utf8', encoding || 'base64')
       + ciph.final(encoding || 'base64').toString('utf8');
+
     eval(vars + '="' + p + '";');
   }
   return obj;
