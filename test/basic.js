@@ -71,7 +71,7 @@ describe('error', function() {
     }
     done();
   });
-  it('should return Error because missing cipher', function(done) {
+  it('should return Error because missing key', function(done) {
 
     try {
       encrypt(a, 'private');
@@ -82,6 +82,20 @@ describe('error', function() {
       decrypt(a, 'private');
     } catch (e) {
       assert.equal(/Must give cipher-type, key/.test(e.message), true);
+    }
+    done();
+  });
+  it('should return Error because missing key', function(done) {
+
+    try {
+      encrypt(a, 'private', 'hex', 'foobar');
+    } catch (e) {
+      assert.equal(/Unknown cipher/.test(e.message), true);
+    }
+    try {
+      decrypt(a, 'private', 'hex', 'foobar');
+    } catch (e) {
+      assert.equal(/Unknown cipher/.test(e.message), true);
     }
     done();
   });

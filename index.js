@@ -33,8 +33,8 @@ function check(obj, index) {
  * @param {Object} obj - your object
  * @param {String} index - object key
  * @param {String} key - your key
- * @param {String} cipher - cipher
- * @param {String} encoding - output encoding
+ * @param {String} [cipher] - cipher
+ * @param {String} [encoding] - output encoding
  * @return {Object}
  */
 function decrypt(obj, index, key, cipher, encoding) {
@@ -64,8 +64,8 @@ module.exports.decrypt = decrypt;
  * @param {Object} obj - your object
  * @param {String} index - object key
  * @param {String} key - your key
- * @param {String} cipher - cipher
- * @param {String} encoding - output encoding
+ * @param {String} [cipher] - cipher
+ * @param {String} [encoding] - output encoding
  * @return {Object}
  */
 function encrypt(obj, index, key, cipher, encoding) {
