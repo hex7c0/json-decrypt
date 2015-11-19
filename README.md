@@ -1,4 +1,4 @@
-# [json-decrypt](http://supergiovane.tk/#/json-decrypt)
+# [json-decrypt](https://github.com/hex7c0/json-decrypt)
 
 [![NPM version](https://img.shields.io/npm/v/json-decrypt.svg)](https://www.npmjs.com/package/json-decrypt)
 [![Linux Status](https://img.shields.io/travis/hex7c0/json-decrypt.svg?label=linux)](https://travis-ci.org/hex7c0/json-decrypt)
