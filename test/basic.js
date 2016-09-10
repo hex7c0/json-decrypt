@@ -76,12 +76,14 @@ describe('error', function() {
     try {
       encrypt(a, 'private');
     } catch (e) {
-      assert.equal(/Must give cipher-type, key/.test(e.message), true);
+      assert.equal(/(Must give cipher-type, key|Key must be a buffer)/
+          .test(e.message), true);
     }
     try {
       decrypt(a, 'private');
     } catch (e) {
-      assert.equal(/Must give cipher-type, key/.test(e.message), true);
+      assert.equal(/(Must give cipher-type, key|Key must be a buffer)/
+          .test(e.message), true);
     }
     done();
   });
