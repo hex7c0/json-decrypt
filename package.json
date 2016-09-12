@@ -1,5 +1,5 @@
 {
-  "version": "0.1.3",
+  "version": "0.2.0",
   "name": "json-decrypt",
   "description": "decrypt (or encrypt) your json configuration with a password",
   "keywords": [
