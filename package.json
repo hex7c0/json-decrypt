@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "istanbul": "~0.4",
-    "mocha": "~3.0"
+    "mocha": "~3.2"
   },
   "engines": {
     "node": ">=0.10"
