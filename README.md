@@ -1,7 +1,7 @@
 # [json-decrypt](https://github.com/hex7c0/json-decrypt)
 
 [![NPM version](https://img.shields.io/npm/v/json-decrypt.svg)](https://www.npmjs.com/package/json-decrypt)
-[![Linux Status](https://img.shields.io/travis/hex7c0/json-decrypt.svg?label=linux)](https://travis-ci.org/hex7c0/json-decrypt)
+[![Linux Status](https://img.shields.io/travis/hex7c0/json-decrypt.svg?label=linux-osx)](https://travis-ci.org/hex7c0/json-decrypt)
 [![Windows Status](https://img.shields.io/appveyor/ci/hex7c0/json-decrypt.svg?label=windows)](https://ci.appveyor.com/project/hex7c0/json-decrypt)
 [![Dependency Status](https://img.shields.io/david/hex7c0/json-decrypt.svg)](https://david-dm.org/hex7c0/json-decrypt)
 [![Coveralls](https://img.shields.io/coveralls/hex7c0/json-decrypt.svg)](https://coveralls.io/r/hex7c0/json-decrypt)
