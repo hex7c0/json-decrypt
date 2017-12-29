@@ -13,13 +13,18 @@
  * initialize module
  */
 var crypto = require('crypto');
-function check(obj, index) {
+
+function check(obj, index, key) {
 
   if (typeof obj !== 'object') {
     throw new TypeError('First argument is not an Object');
   } else if (obj[index] === undefined) {
     throw new TypeError('Second argument is undefined');
   }
+  if (!key) {
+    throw new TypeError('Key must be a buffer');
+  }
+
   return obj[index];
 }
 
@@ -27,7 +32,7 @@ function check(obj, index) {
  * functions
  */
 /**
- * decrypt your json
+ * Decrypt your json.
  * 
  * @function decrypt
  * @param {Object} obj - your object
@@ -39,15 +44,17 @@ function check(obj, index) {
  */
 function decrypt(obj, index, key, cipher, encoding) {
 
-  var pr = check(obj, index);
-  for (var i = 0, ii = pr.length; i < ii; ++i) {
-    var pit = pr[i].split('.');
+  var _prv = check(obj, index, key);
+  var _key = key;
+
+  for (var i = 0, ii = _prv.length; i < ii; ++i) {
+    var pit = _prv[i].split('.');
     var vars = 'obj';
     for (var j = 0, jj = pit.length; j < jj; ++j) {
       vars += '[pit[' + j + ']]';
     }
 
-    var ciph = crypto.createDecipher(cipher || 'aes-128-ctr', key);
+    var ciph = crypto.createDecipher(cipher || 'aes-128-cfb', _key);
     var p = ciph.update(eval(vars), encoding || 'base64', 'utf8')
       + ciph.final('utf8').toString('utf8');
 
@@ -58,7 +65,7 @@ function decrypt(obj, index, key, cipher, encoding) {
 module.exports.decrypt = decrypt;
 
 /**
- * encrypt your json
+ * Encrypt your json.
  * 
  * @function encrypt
  * @param {Object} obj - your object
@@ -70,15 +77,17 @@ module.exports.decrypt = decrypt;
  */
 function encrypt(obj, index, key, cipher, encoding) {
 
-  var pr = check(obj, index);
-  for (var i = 0, ii = pr.length; i < ii; ++i) {
-    var pit = pr[i].split('.');
+  var _prv = check(obj, index, key);
+  var _key = key;
+
+  for (var i = 0, ii = _prv.length; i < ii; ++i) {
+    var pit = _prv[i].split('.');
     var vars = 'obj';
     for (var j = 0, jj = pit.length; j < jj; ++j) {
       vars += '[pit[' + j + ']]';
     }
 
-    var ciph = crypto.createCipher(cipher || 'aes-128-ctr', key);
+    var ciph = crypto.createCipher(cipher || 'aes-128-cfb', _key);
     var p = ciph.update(eval(vars), 'utf8', encoding || 'base64')
       + ciph.final(encoding || 'base64').toString('utf8');
 
