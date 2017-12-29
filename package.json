@@ -23,17 +23,16 @@
     "email": "hex7c0@gmail.com"
   },
   "main": "index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "istanbul": "~0.4",
-    "mocha": "~3.2"
+    "mocha": "~4.1"
   },
   "engines": {
-    "node": ">=4.0"
+    "node": ">=4"
   },
   "scripts": {
-    "prepublish": "npm prune",
+    "prepare": "npm prune",
     "test": "mocha --bail --check-leaks",
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly"
   },
