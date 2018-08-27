@@ -58,7 +58,7 @@ function decrypt(obj, index, key, cipher, encoding) {
     var p = ciph.update(eval(vars), encoding || 'base64', 'utf8')
       + ciph.final('utf8').toString('utf8');
 
-    eval(vars + '="' + p + '";');
+    eval(vars + '=' + JSON.stringify(p) + ';');
   }
   return obj;
 }

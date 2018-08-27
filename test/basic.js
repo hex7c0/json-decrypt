@@ -257,4 +257,49 @@ describe('correct', function() {
       done();
     });
   });
+
+  describe('with double quotes', function() {
+
+    var a = {
+      fix: 'ciao',
+      foo: 'hex7c',
+      foo2: '"ciao"',
+      foo3: {
+        p: '"hex7c00"',
+        f: {
+          p: 'hex7c000'
+        }
+      },
+      foo4: {
+        p: 'hex7c0000',
+        f: true
+      },
+      private: [ 'foo', 'foo2', 'foo3.p', 'foo3.f.p', 'foo4.p' ]
+    };
+
+    it('should return a decrypted Object', function(done) {
+
+      a = encrypt(a, 'private', 'hex');
+      assert.equal(a.fix, 'ciao');
+      assert.equal(a.foo4.f, true);
+      assert.equal(a.foo, 'hRzVwi8=');
+      assert.equal(a.foo2, 'zxrElCMV');
+      assert.equal(a.foo3.p, 'zxHIjXtU9EaF');
+      assert.equal(a.foo3.f.p, 'hRzVwi8H9EY=');
+      assert.equal(a.foo4.p, 'hRzVwi8H9EaX');
+      done();
+    });
+    it('should return an encrypted Object', function(done) {
+
+      var b = decrypt(a, 'private', 'hex');
+      assert.equal(b.fix, 'ciao');
+      assert.equal(b.foo4.f, true);
+      assert.equal(b.foo, 'hex7c');
+      assert.equal(b.foo2, '"ciao"');
+      assert.equal(b.foo3.p, '"hex7c00"');
+      assert.equal(b.foo3.f.p, 'hex7c000');
+      assert.equal(b.foo4.p, 'hex7c0000');
+      done();
+    });
+  });
 });
